@@ -38,7 +38,6 @@ function compra() {
 
     //Creo un array vacío en el cual voy a almacenar los productos que se van comprando para que después pueda mostrar al usuario un resumen de la compra
     const productosComprados = [];
-    
     // Inicializo otros valores que se van a usar en los métodos de pago.
     let descuento = 0.3;
     let recargaCredito = 0.2;
@@ -48,7 +47,6 @@ function compra() {
     let salir = false;
 
     alert("Bienvenido a la tienda!!\nTenemos productos que van desde:\nCerveza brahma 473\nCerveza quilmes 473\nCerveza heineken 473\nFernet branca\nVodkas de Skyy y Smirnoff de ananá, frutos rojos, coco, maracuya\nGaseosas de fanta 2 lt, pepsi 2 lt, sprite 3lt y\nWhisky blue label :D");
-
     //Uso el bucle for of para tener acceso a los objetos dentro del array productos
     for (const producto of productos) {
 
@@ -78,9 +76,7 @@ function compra() {
                     //En caso que el método de pago esté bien ingresado, se sale de este bucle para poder seguir con la compra
                     if (metodoDePago === "efectivo" || metodoDePago === "debito" || metodoDePago === "credito") {
                         break;
-
                     } else {
-
                         alert("Opción no válida. Por favor, ingrese efectivo, débito o crédito.");
                     }
                 }
@@ -89,14 +85,12 @@ function compra() {
                 let precio = productoEncontrado.precio;
 
                 if (metodoDePago === "efectivo") {
-
                     precio -= precio * descuento;
                     alert(`El precio pagando en efectivo es $${precio}`);
 
                 } else if (metodoDePago === "credito") {
 
-                    precio += precio * recargaCredito;
-                    alert(`El precio pagando con credito es $${precio}`);
+                    precio += precio * recargaCredito; alert(`El precio pagando con credito es $${precio}`);
 
                 } else if (metodoDePago === "debito") {
 
@@ -159,10 +153,10 @@ function compra() {
         }
     }
 
-    alert ("Resumen de productos comprados:");
+    alert("Resumen de productos comprados:");
 
     //Uso el método forEach donde tome como parámetro cada ítem, que sería los objetos creados en el array productosComprados, para recorrerlos y podes extraer cada información dentro para brindar el resumen de la compra
-    productosComprados.forEach(item =>{
+    productosComprados.forEach(item => {
         alert(`${item.cantidad} unidades de ${item.nombre}\nPagado con ${item.pago}\nAl precio de: $${item.precio} pesos\nMonto total: $${item.montoTotal} pesos`);
     });
 
